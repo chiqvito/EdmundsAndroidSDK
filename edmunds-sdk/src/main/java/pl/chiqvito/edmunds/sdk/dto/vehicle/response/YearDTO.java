@@ -11,6 +11,12 @@ public class YearDTO {
     @SerializedName("id")
     private Integer id;
 
+    @SerializedName("make")
+    private MakeDTO make;
+
+    @SerializedName("model")
+    private ModelDTO model;
+
     @SerializedName("states")
     private List<StateEnum> states;
 
@@ -52,11 +58,29 @@ public class YearDTO {
         this.styles = styles;
     }
 
+    public MakeDTO getMake() {
+        return make;
+    }
+
+    public void setMake(MakeDTO make) {
+        this.make = make;
+    }
+
+    public ModelDTO getModel() {
+        return model;
+    }
+
+    public void setModel(ModelDTO model) {
+        this.model = model;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[" + this.getClass().getSimpleName());
         sb.append(" id: " + id);
+        sb.append(", make: " + make);
+        sb.append(", model: " + model);
         sb.append(", states: " + states);
         sb.append(", styles: " + styles);
         sb.append(", year: " + year);

@@ -12,6 +12,22 @@ public class ModelsDTO {
     @SerializedName("modelsCount")
     private Integer modelsCount;
 
+    public List<ModelDTO> getModels() {
+        return models;
+    }
+
+    public void setModels(List<ModelDTO> models) {
+        this.models = models;
+    }
+
+    public Integer getModelsCount() {
+        return modelsCount;
+    }
+
+    public void setModelsCount(Integer modelsCount) {
+        this.modelsCount = modelsCount;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

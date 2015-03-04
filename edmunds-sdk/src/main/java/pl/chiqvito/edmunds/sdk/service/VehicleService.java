@@ -8,6 +8,9 @@ import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakesDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelsCountDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelsDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearsCountDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearsDTO;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
@@ -32,5 +35,14 @@ public interface VehicleService {
 
     @GET("/api/vehicle/v2/{make}/{model}")
     void model(@Path("make") String make, @Path("model") String model, @Query("state") StateEnum state, @Query("year") Integer year, @Query("view") ViewTypeEnum view, Callback<ModelDTO> callback);
+
+    @GET("/api/vehicle/v2/{make}/{model}/years")
+    void modelYears(@Path("make") String make, @Path("model") String model, @Query("state") StateEnum state, @Query("view") ViewTypeEnum view, Callback<YearsDTO> callback);
+
+    @GET("/api/vehicle/v2/{make}/{model}/years/count")
+    void modelYearsCount(@Path("make") String make, @Path("model") String model, @Query("state") StateEnum state, @Query("view") ViewTypeEnum view, Callback<YearsCountDTO> callback);
+
+    @GET("/api/vehicle/v2/{make}/{model}/{year}")
+    void modelYear(@Path("make") String make, @Path("model") String model, @Path("year") Integer year, @Query("state") StateEnum state, @Query("view") ViewTypeEnum view, Callback<YearDTO> callback);
 
 }
