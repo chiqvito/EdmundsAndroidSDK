@@ -11,6 +11,9 @@ public class ModelDTO {
     @SerializedName("id")
     private String id;
 
+    @SerializedName("make")
+    private MakeDTO make;
+
     @SerializedName("name")
     private String name;
 
@@ -63,6 +66,14 @@ public class ModelDTO {
         this.years = years;
     }
 
+    public MakeDTO getMake() {
+        return make;
+    }
+
+    public void setMake(MakeDTO make) {
+        this.make = make;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -72,6 +83,7 @@ public class ModelDTO {
         sb.append(", niceName: " + niceName);
         sb.append(", states: " + states);
         sb.append(", years: " + years);
+        sb.append(", make: " + make);
         sb.append("]");
         return sb.toString();
     }

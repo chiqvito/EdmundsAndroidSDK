@@ -14,6 +14,9 @@ public class YearDTO {
     @SerializedName("states")
     private List<StateEnum> states;
 
+    @SerializedName("styles")
+    private List<StyleDTO> styles;
+
     @SerializedName("year")
     private Integer year;
 
@@ -41,15 +44,24 @@ public class YearDTO {
         this.year = year;
     }
 
+    public List<StyleDTO> getStyles() {
+        return styles;
+    }
+
+    public void setStyles(List<StyleDTO> styles) {
+        this.styles = styles;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[" + this.getClass().getSimpleName());
         sb.append(" id: " + id);
         sb.append(", states: " + states);
+        sb.append(", styles: " + styles);
         sb.append(", year: " + year);
         sb.append("]");
         return sb.toString();
     }
-    
+
 }
