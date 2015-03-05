@@ -8,6 +8,7 @@ import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakesDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelsCountDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelsDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.StylesDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearsCountDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearsDTO;
@@ -44,5 +45,8 @@ public interface VehicleService {
 
     @GET("/api/vehicle/v2/{make}/{model}/{year}")
     void modelYear(@Path("make") String make, @Path("model") String model, @Path("year") Integer year, @Query("state") StateEnum state, @Query("view") ViewTypeEnum view, Callback<YearDTO> callback);
+
+    @GET("/api/vehicle/v2/{make}/{model}/{year}/styles")
+    void styles(@Path("make") String make, @Path("model") String model, @Path("year") Integer year, @Query("state") StateEnum state, @Query("view") ViewTypeEnum view, Callback<StylesDTO> callback);
 
 }
