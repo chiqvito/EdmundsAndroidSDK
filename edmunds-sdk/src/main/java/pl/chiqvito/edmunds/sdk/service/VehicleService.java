@@ -1,7 +1,9 @@
 package pl.chiqvito.edmunds.sdk.service;
 
+import pl.chiqvito.edmunds.sdk.dto.enums.AvailabilityEnum;
 import pl.chiqvito.edmunds.sdk.dto.enums.StateEnum;
 import pl.chiqvito.edmunds.sdk.dto.enums.ViewTypeEnum;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.EnginesDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakeDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakesCountDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.MakesDTO;
@@ -65,5 +67,8 @@ public interface VehicleService {
 
     @GET("/api/vehicle/v2/styles/count")
     void stylesCount(@Query("state") StateEnum state, Callback<StylesCountDTO> callback);
+
+    @GET("/api/vehicle/v2/styles/{style_id}/engines")
+    void engines(@Path("style_id") Integer styleId, @Query("availability") AvailabilityEnum availability, @Query("name") String name, Callback<EnginesDTO> callback);
 
 }

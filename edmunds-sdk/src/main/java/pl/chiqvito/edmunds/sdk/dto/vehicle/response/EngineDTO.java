@@ -2,6 +2,11 @@ package pl.chiqvito.edmunds.sdk.dto.vehicle.response;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
+import pl.chiqvito.edmunds.sdk.dto.enums.AvailabilityEnum;
+import pl.chiqvito.edmunds.sdk.dto.enums.EquipmentTypeEnum;
+
 public class EngineDTO {
 
     @SerializedName("id")
@@ -9,6 +14,12 @@ public class EngineDTO {
 
     @SerializedName("name")
     private String name;
+
+    @SerializedName("equipmentType")
+    private EquipmentTypeEnum equipmentType;
+
+    @SerializedName("availability")
+    private AvailabilityEnum availability;
 
     @SerializedName("compressionRatio")
     private Float compressionRatio;
@@ -48,6 +59,9 @@ public class EngineDTO {
 
     @SerializedName("compressorType")
     private String compressorType;
+
+    @SerializedName("options")
+    private List<OptionDTO> options;
 
     public String getId() {
         return id;
@@ -169,12 +183,38 @@ public class EngineDTO {
         this.compressorType = compressorType;
     }
 
+    public EquipmentTypeEnum getEquipmentType() {
+        return equipmentType;
+    }
+
+    public void setEquipmentType(EquipmentTypeEnum equipmentType) {
+        this.equipmentType = equipmentType;
+    }
+
+    public AvailabilityEnum getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(AvailabilityEnum availability) {
+        this.availability = availability;
+    }
+
+    public List<OptionDTO> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<OptionDTO> options) {
+        this.options = options;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[" + this.getClass().getSimpleName());
         sb.append(" id: " + id);
         sb.append(", name: " + name);
+        sb.append(", equipmentType: " + equipmentType);
+        sb.append(", availability: " + availability);
         sb.append(", compressionRatio: " + compressionRatio);
         sb.append(", cylinder: " + cylinder);
         sb.append(", size: " + size);
@@ -188,6 +228,7 @@ public class EngineDTO {
         sb.append(", type: " + type);
         sb.append(", code: " + code);
         sb.append(", compressorType: " + compressorType);
+        sb.append(", options: " + options);
         sb.append("]");
         return sb.toString();
     }

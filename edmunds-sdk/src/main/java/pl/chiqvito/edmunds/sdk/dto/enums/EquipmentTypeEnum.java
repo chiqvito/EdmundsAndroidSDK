@@ -4,6 +4,7 @@ public enum EquipmentTypeEnum {
     AUDIO_SYSTEM,
     COLOR,
     ENGINE,
+    TRANSMISSION,
     MANUFACTURER,
     MIRRORS,
     OPTION,

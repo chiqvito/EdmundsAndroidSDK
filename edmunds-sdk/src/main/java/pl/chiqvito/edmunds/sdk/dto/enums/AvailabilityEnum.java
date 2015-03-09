@@ -7,4 +7,9 @@ public enum AvailabilityEnum {
     STANDARD,
     @SerializedName("Optional")
     OPTIONAL;
+
+    @Override
+    public String toString() {
+        return name().toLowerCase();
+    }
 }
