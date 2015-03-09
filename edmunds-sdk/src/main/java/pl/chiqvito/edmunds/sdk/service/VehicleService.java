@@ -53,4 +53,7 @@ public interface VehicleService {
     @GET("/api/vehicle/v2/{make}/{model}/{year}/styles/count")
     void stylesCount(@Path("make") String make, @Path("model") String model, @Path("year") Integer year, @Query("state") StateEnum state, @Query("view") ViewTypeEnum view, Callback<StylesCountDTO> callback);
 
+    @GET("/api/vehicle/v2/styles/count")
+    void stylesCount(@Query("state") StateEnum state, @Query("view") ViewTypeEnum view, Callback<StylesCountDTO> callback);
+
 }

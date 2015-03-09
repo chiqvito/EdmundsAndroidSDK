@@ -25,9 +25,24 @@ public class StylesCountClient extends BaseStylesClient<StylesCountDTO> {
         this(context, apiKey, make, model, year, null, view);
     }
 
+    public StylesCountClient(Context context, String apiKey, ViewTypeEnum view) {
+        this(context, apiKey, null, null, null, null, view);
+    }
+
+    public StylesCountClient(Context context, String apiKey, StateEnum state) {
+        this(context, apiKey, null, null, null, state, null);
+    }
+
+    public StylesCountClient(Context context, String apiKey) {
+        this(context, apiKey, null, null, null, null, null);
+    }
+
     @Override
     protected void executeService(VehicleService service) {
-        service.stylesCount(make, model, year, state, view, this);
+        if (hasPathParams())
+            service.stylesCount(make, model, year, state, view, this);
+        else
+            service.stylesCount(state, view, this);
     }
 
 }

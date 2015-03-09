@@ -22,4 +22,8 @@ public abstract class BaseStylesClient<K> extends BaseVehicleClient<K> {
         this.view = view;
     }
 
+    protected boolean hasPathParams() {
+        return make != null && model != null && year != null;
+    }
+
 }
