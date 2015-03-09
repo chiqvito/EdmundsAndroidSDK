@@ -14,6 +14,7 @@ import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelsDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.StyleDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.StylesCountDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.StylesDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.TransmissionsDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearsCountDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.YearsDTO;
@@ -74,5 +75,8 @@ public interface VehicleService {
 
     @GET("/api/vehicle/v2/engines/{id}")
     void engines(@Path("id") Integer id, Callback<EngineDTO> callback);
+
+    @GET("/api/vehicle/v2/styles/{style_id}/transmissions")
+    void transmissions(@Path("style_id") Integer styleId, @Query("availability") AvailabilityEnum availability, @Query("name") String name, Callback<TransmissionsDTO> callback);
 
 }

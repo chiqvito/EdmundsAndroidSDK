@@ -7,16 +7,16 @@ import pl.chiqvito.edmunds.sdk.service.VehicleService;
 
 public class EngineClient extends BaseVehicleClient<EngineDTO> {
 
-    private final Integer styleId;
+    private final Integer id;
 
-    public EngineClient(Context context, String apiKey, Integer styleId) {
+    public EngineClient(Context context, String apiKey, Integer id) {
         super(context, apiKey);
-        this.styleId = styleId;
+        this.id = id;
     }
 
     @Override
     protected void executeService(VehicleService service) {
-        service.engines(styleId, this);
+        service.engines(id, this);
     }
 
 }
