@@ -4,25 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import pl.chiqvito.edmunds.sdk.dto.enums.EquipmentTypeEnum;
 import pl.chiqvito.edmunds.sdk.dto.enums.OptionCategoryEnum;
 
-public class OptionDTO {
-
-    @SerializedName("id")
-    private Integer id;
-
-    @SerializedName("name")
-    private String name;
+public class OptionDTO extends EquipmentDTO {
 
     @SerializedName("description")
     private String description;
-
-    @SerializedName("equipmentType")
-    private EquipmentTypeEnum equipmentType;
-
-    @SerializedName("availability")
-    private String availability;
 
     @SerializedName("attributes")
     private List<AttributeDTO> attributes;
@@ -36,32 +23,10 @@ public class OptionDTO {
     @SerializedName("category")
     private OptionCategoryEnum category;
 
+    private List<EquipmentDTO> equipment;
+
     @SerializedName("price")
     private PriceDTO price;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public EquipmentTypeEnum getEquipmentType() {
-        return equipmentType;
-    }
-
-    public void setEquipmentType(EquipmentTypeEnum equipmentType) {
-        this.equipmentType = equipmentType;
-    }
 
     public String getManufactureOptionName() {
         return manufactureOptionName;
@@ -95,14 +60,6 @@ public class OptionDTO {
         this.description = description;
     }
 
-    public String getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(String availability) {
-        this.availability = availability;
-    }
-
     public List<AttributeDTO> getAttributes() {
         return attributes;
     }
@@ -119,20 +76,26 @@ public class OptionDTO {
         this.price = price;
     }
 
+    public List<EquipmentDTO> getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(List<EquipmentDTO> equipment) {
+        this.equipment = equipment;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" id: " + id);
-        sb.append(", name: " + name);
+        sb.append("<" + super.toString() + ">");
         sb.append(", description: " + description);
-        sb.append(", equipmentType: " + equipmentType);
-        sb.append(", availability: " + availability);
         sb.append(", attributes: " + attributes);
         sb.append(", manufactureOptionName: " + manufactureOptionName);
         sb.append(", manufactureOptionCode: " + manufactureOptionCode);
         sb.append(", category: " + category);
         sb.append(", price: " + price);
+        sb.append(", equipment: " + equipment);
         sb.append("]");
         return sb.toString();
     }
