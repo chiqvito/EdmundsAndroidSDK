@@ -14,6 +14,7 @@ import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelsCountDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.ModelsDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.OptionColorDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.OptionColorsDTO;
+import pl.chiqvito.edmunds.sdk.dto.vehicle.response.OptionDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.OptionsDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.StyleDTO;
 import pl.chiqvito.edmunds.sdk.dto.vehicle.response.StylesCountDTO;
@@ -95,5 +96,8 @@ public interface VehicleService {
 
     @GET("/api/vehicle/v2/styles/{style_id}/options")
     void options(@Path("style_id") Integer styleId, @Query("category") OptionCategoryEnum category, Callback<OptionsDTO> callback);
+
+    @GET("/api/vehicle/v2/options/{id}")
+    void options(@Path("id") Integer id, Callback<OptionDTO> callback);
 
 }
