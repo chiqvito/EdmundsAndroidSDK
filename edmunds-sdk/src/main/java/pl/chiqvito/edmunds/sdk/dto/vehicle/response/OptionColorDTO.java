@@ -32,6 +32,7 @@ public class OptionColorDTO extends OptionDTO {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[" + this.getClass().getSimpleName());
+        sb.append("<" + super.toString() + ">");
         sb.append(" colorChips: " + colorChips);
         sb.append(", fabricTypes: " + fabricTypes);
         sb.append("]");

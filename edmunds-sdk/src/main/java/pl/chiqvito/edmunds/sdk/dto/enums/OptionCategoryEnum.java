@@ -19,4 +19,10 @@ public enum OptionCategoryEnum {
     ADDITIONAL_FEES,
     @SerializedName("Other")
     OTHER;
+
+    @Override
+    public String toString() {
+        return name().toLowerCase();
+    }
+    
 }
