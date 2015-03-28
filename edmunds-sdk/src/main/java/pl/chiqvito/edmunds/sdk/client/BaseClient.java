@@ -21,9 +21,14 @@ public abstract class BaseClient<K> implements Callback<K>, RequestInterceptor, 
     protected Handler handler;
 
     public BaseClient(Context context, String apiKey) {
+        this(context, apiKey, false);
+    }
+
+    public BaseClient(Context context, String apiKey, boolean runInThread) {
         this.context = context.getApplicationContext();
         this.apiKey = apiKey;
-        handler = new Handler();
+        if (runInThread)
+            handler = new Handler();
     }
 
     public void execute() {
@@ -116,9 +121,4 @@ public abstract class BaseClient<K> implements Callback<K>, RequestInterceptor, 
         return context;
     }
 
-    public interface OnResultCallback<K> {
-        void onResponseOk(K k, Response r);
-
-        void onFail(RetrofitError error);
-    }
 }
