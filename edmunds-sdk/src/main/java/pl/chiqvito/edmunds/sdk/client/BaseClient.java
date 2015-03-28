@@ -3,8 +3,11 @@ package pl.chiqvito.edmunds.sdk.client;
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import pl.chiqvito.edmunds.sdk.ApiConstants;
+import pl.chiqvito.edmunds.sdk.R;
+import pl.chiqvito.edmunds.sdk.util.Boast;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
@@ -13,6 +16,8 @@ import retrofit.client.OkClient;
 import retrofit.client.Response;
 
 public abstract class BaseClient<K> implements Callback<K>, RequestInterceptor, RestAdapter.Log {
+
+    private static final String TAG = "RETROFIT_LOG";
 
     private String apiKey;
 
@@ -81,12 +86,45 @@ public abstract class BaseClient<K> implements Callback<K>, RequestInterceptor, 
     }
 
     private void sendError(RetrofitError error) {
-        if (error.getResponse() != null && error.getResponse().getStatus() == 401) {
-            //TODO access denied
-        } else {
-            if (onResultCallback != null) {
-                onResultCallback.onFail(error);
+        if (error.getResponse() != null) {
+            Log.w(TAG, error.getResponse().getStatus() + " " + error.getResponse().getReason());
+            switch (error.getResponse().getStatus()) {
+                case 400: {
+                    Boast.showText(context, R.string.err_bad_request, Toast.LENGTH_SHORT);
+                    break;
+                }
+                case 401: {
+                    Boast.showText(context, R.string.err_unauthorized, Toast.LENGTH_SHORT);
+                    break;
+                }
+                case 403: {
+                    Boast.showText(context, R.string.err_forbidden, Toast.LENGTH_SHORT);
+                    break;
+                }
+                case 404: {
+                    Boast.showText(context, R.string.err_not_found, Toast.LENGTH_SHORT);
+                    break;
+                }
+                case 502: {
+                    Boast.showText(context, R.string.err_bad_gateway, Toast.LENGTH_SHORT);
+                    break;
+                }
+                case 503: {
+                    Boast.showText(context, R.string.err_service_unavailable, Toast.LENGTH_SHORT);
+                    break;
+                }
+                case 504: {
+                    Boast.showText(context, R.string.err_gateway_timeout, Toast.LENGTH_SHORT);
+                    break;
+                }
+                default: {
+                    Boast.showText(context, error.getResponse().getReason(), Toast.LENGTH_SHORT);
+                    break;
+                }
             }
+        }
+        if (onResultCallback != null) {
+            onResultCallback.onFail(error);
         }
     }
 
@@ -106,7 +144,7 @@ public abstract class BaseClient<K> implements Callback<K>, RequestInterceptor, 
 
     @Override
     public void log(String message) {
-        Log.v("RETROFIT_LOG", message);
+        Log.v(TAG, message);
     }
 
     protected String responseFormat() {

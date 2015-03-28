@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">edmunds-sdk</string>
+    <string name="err_bad_request">Bad Request. Check the URL to make sure it has proper syntax.</string>
+    <string name="err_unauthorized">Unauthorized. You are using the wrong API key or the key isn’t active.</string>
+    <string name="err_forbidden">Forbidden. You are not authorized to access this resource, sorry.</string>
+    <string name="err_not_found">Not Found. Check the URL path for typos.</string>
+    <string name="err_bad_gateway">Bad Gateway</string>
+    <string name="err_service_unavailable">Service Unavailable</string>
+    <string name="err_gateway_timeout">Gateway Timeout</string>
 </resources>
