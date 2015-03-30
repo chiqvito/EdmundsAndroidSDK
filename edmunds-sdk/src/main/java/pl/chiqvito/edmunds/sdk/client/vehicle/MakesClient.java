@@ -21,6 +21,10 @@ public class MakesClient extends BaseMakesClient<MakesDTO> {
         this(context, apiKey, state, null, null);
     }
 
+    public MakesClient(Context context, String apiKey, StateEnum state, Integer year) {
+        this(context, apiKey, state, year, null);
+    }
+
     public MakesClient(Context context, String apiKey, Integer year) {
         this(context, apiKey, null, year, null);
     }
