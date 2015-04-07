@@ -1,12 +1,26 @@
 package pl.chiqvito.edmunds.sdk.dto.vehicle.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.chiqvito.edmunds.sdk.dto.enums.StateEnum;
 
-public class StyleDTO {
+public class StyleDTO implements Parcelable {
+
+    public static final Parcelable.Creator<StyleDTO> CREATOR = new Parcelable.Creator<StyleDTO>() {
+        public StyleDTO createFromParcel(Parcel in) {
+            return new StyleDTO(in);
+        }
+
+        public StyleDTO[] newArray(int size) {
+            return new StyleDTO[size];
+        }
+    };
 
     @SerializedName("id")
     private Integer id;
@@ -64,6 +78,67 @@ public class StyleDTO {
 
     @SerializedName("price")
     private PriceDTO price;
+
+    public StyleDTO() {
+    }
+
+    private StyleDTO(Parcel in) {
+        readFromParcel(in);
+    }
+
+    private void readFromParcel(Parcel in) {
+        id = (Integer) in.readValue(Integer.class.getClassLoader());
+        name = (String) in.readValue(String.class.getClassLoader());
+        make = in.readParcelable(MakeDTO.class.getClassLoader());
+        model = in.readParcelable(ModelDTO.class.getClassLoader());
+        year = in.readParcelable(YearDTO.class.getClassLoader());
+        submodel = in.readParcelable(SubModelDTO.class.getClassLoader());
+        trim = (String) in.readValue(String.class.getClassLoader());
+        states = new ArrayList<StateEnum>();
+        in.readList(states, StateEnum.class.getClassLoader());
+        engine = in.readParcelable(EngineDTO.class.getClassLoader());
+        transmission = in.readParcelable(TransmissionDTO.class.getClassLoader());
+        options = new ArrayList<OptionsDTO>();//TODO check this
+        in.readList(options, OptionsDTO.class.getClassLoader());
+        colors = new ArrayList<OptionsColorDTO>();
+        in.readList(colors, OptionsColorDTO.class.getClassLoader());
+        drivenWheels = (String) in.readValue(String.class.getClassLoader());
+        numOfDoors = (String) in.readValue(String.class.getClassLoader());
+        squishVins = new ArrayList<String>();
+        in.readStringList(squishVins);
+        category = in.readParcelable(CategoryDTO.class.getClassLoader());
+        mpg = in.readParcelable(MPGDTO.class.getClassLoader());
+        manufacturerCode = (String) in.readValue(String.class.getClassLoader());
+        price = in.readParcelable(PriceDTO.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(id);
+        dest.writeValue(name);
+        dest.writeParcelable(make, flags);
+        dest.writeParcelable(model, flags);
+        dest.writeParcelable(year, flags);
+        dest.writeParcelable(submodel, flags);
+        dest.writeValue(trim);
+        dest.writeList(states);
+        dest.writeParcelable(engine, flags);
+        dest.writeParcelable(transmission, flags);
+        dest.writeList(options);
+        dest.writeList(colors);
+        dest.writeValue(drivenWheels);
+        dest.writeValue(numOfDoors);
+        dest.writeStringList(squishVins);
+        dest.writeParcelable(category, flags);
+        dest.writeParcelable(mpg, flags);
+        dest.writeValue(manufacturerCode);
+        dest.writeParcelable(price, flags);
+    }
 
     public Integer getId() {
         return id;

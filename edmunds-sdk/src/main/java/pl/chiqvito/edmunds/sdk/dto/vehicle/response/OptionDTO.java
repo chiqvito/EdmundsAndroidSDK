@@ -1,5 +1,8 @@
 package pl.chiqvito.edmunds.sdk.dto.vehicle.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -7,6 +10,16 @@ import java.util.List;
 import pl.chiqvito.edmunds.sdk.dto.enums.OptionCategoryEnum;
 
 public class OptionDTO extends EquipmentDTO {
+
+    public static final Parcelable.Creator<OptionDTO> CREATOR = new Parcelable.Creator<OptionDTO>() {
+        public OptionDTO createFromParcel(Parcel in) {
+            return new OptionDTO(in);
+        }
+
+        public OptionDTO[] newArray(int size) {
+            return new OptionDTO[size];
+        }
+    };
 
     @SerializedName("description")
     private String description;
@@ -27,6 +40,30 @@ public class OptionDTO extends EquipmentDTO {
 
     @SerializedName("price")
     private PriceDTO price;
+
+    public OptionDTO() {
+        super();
+    }
+
+    private OptionDTO(Parcel in) {
+        super(in);
+        readFromParcel(in);
+    }
+
+    private void readFromParcel(Parcel in) {
+        //TODO
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        //TODO
+    }
 
     public String getManufactureOptionName() {
         return manufactureOptionName;

@@ -1,10 +1,23 @@
 package pl.chiqvito.edmunds.sdk.dto.vehicle.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.math.BigDecimal;
 
-public class PriceDTO {
+public class PriceDTO implements Parcelable {
+
+    public static final Parcelable.Creator<PriceDTO> CREATOR = new Parcelable.Creator<PriceDTO>() {
+        public PriceDTO createFromParcel(Parcel in) {
+            return new PriceDTO(in);
+        }
+
+        public PriceDTO[] newArray(int size) {
+            return new PriceDTO[size];
+        }
+    };
 
     @SerializedName("baseMSRP")
     private BigDecimal baseMSRP;
@@ -29,6 +42,41 @@ public class PriceDTO {
 
     @SerializedName("tmvRecommendedRating")
     private BigDecimal tmvRecommendedRating;
+
+    public PriceDTO() {
+    }
+
+    private PriceDTO(Parcel in) {
+        readFromParcel(in);
+    }
+
+    private void readFromParcel(Parcel in) {
+        baseMSRP = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
+        baseInvoice = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
+        deliveryCharges = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
+        usedTmvRetail = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
+        usedPrivateParty = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
+        usedTradeIn = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
+        estimateTmv = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        tmvRecommendedRating = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(baseMSRP);
+        dest.writeValue(baseInvoice);
+        dest.writeValue(deliveryCharges);
+        dest.writeValue(usedTmvRetail);
+        dest.writeValue(usedPrivateParty);
+        dest.writeValue(usedTradeIn);
+        dest.writeValue(estimateTmv);
+        dest.writeValue(tmvRecommendedRating);
+    }
 
     public BigDecimal getBaseMSRP() {
         return baseMSRP;

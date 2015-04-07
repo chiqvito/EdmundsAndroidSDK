@@ -1,8 +1,21 @@
 package pl.chiqvito.edmunds.sdk.dto.vehicle.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class SubModelDTO {
+public class SubModelDTO implements Parcelable {
+
+    public static final Parcelable.Creator<SubModelDTO> CREATOR = new Parcelable.Creator<SubModelDTO>() {
+        public SubModelDTO createFromParcel(Parcel in) {
+            return new SubModelDTO(in);
+        }
+
+        public SubModelDTO[] newArray(int size) {
+            return new SubModelDTO[size];
+        }
+    };
 
     @SerializedName("modelName")
     private String modelName;
@@ -18,6 +31,35 @@ public class SubModelDTO {
 
     @SerializedName("tuner")
     private String tuner;
+
+    public SubModelDTO() {
+    }
+
+    private SubModelDTO(Parcel in) {
+        readFromParcel(in);
+    }
+
+    private void readFromParcel(Parcel in) {
+        modelName = (String) in.readValue(String.class.getClassLoader());
+        niceName = (String) in.readValue(String.class.getClassLoader());
+        body = (String) in.readValue(String.class.getClassLoader());
+        fuel = (String) in.readValue(String.class.getClassLoader());
+        tuner = (String) in.readValue(String.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(modelName);
+        dest.writeValue(niceName);
+        dest.writeValue(body);
+        dest.writeValue(fuel);
+        dest.writeValue(tuner);
+    }
 
     public String getModelName() {
         return modelName;

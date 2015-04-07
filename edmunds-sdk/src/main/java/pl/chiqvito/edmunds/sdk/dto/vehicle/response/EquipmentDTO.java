@@ -1,13 +1,24 @@
 package pl.chiqvito.edmunds.sdk.dto.vehicle.response;
 
-import com.google.gson.annotations.SerializedName;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
 import pl.chiqvito.edmunds.sdk.dto.enums.AvailabilityEnum;
 import pl.chiqvito.edmunds.sdk.dto.enums.EquipmentTypeEnum;
 
-public class EquipmentDTO {
+public class EquipmentDTO implements Parcelable {
+
+    public static final Parcelable.Creator<EquipmentDTO> CREATOR = new Parcelable.Creator<EquipmentDTO>() {
+        public EquipmentDTO createFromParcel(Parcel in) {
+            return new EquipmentDTO(in);
+        }
+
+        public EquipmentDTO[] newArray(int size) {
+            return new EquipmentDTO[size];
+        }
+    };
 
     @SerializedName("id")
     private String id;
@@ -20,6 +31,33 @@ public class EquipmentDTO {
 
     @SerializedName("availability")
     private AvailabilityEnum availability;
+
+    public EquipmentDTO() {
+    }
+
+    protected EquipmentDTO(Parcel in) {
+        readFromParcel(in);
+    }
+
+    private void readFromParcel(Parcel in) {
+        id = (String) in.readValue(String.class.getClassLoader());
+        name = (String) in.readValue(String.class.getClassLoader());
+        equipmentType = in.readParcelable(EquipmentTypeEnum.class.getClassLoader());
+        availability = in.readParcelable(AvailabilityEnum.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(id);
+        dest.writeValue(name);
+        dest.writeParcelable(equipmentType, flags);
+        dest.writeParcelable(availability, flags);
+    }
 
     public String getId() {
         return id;
