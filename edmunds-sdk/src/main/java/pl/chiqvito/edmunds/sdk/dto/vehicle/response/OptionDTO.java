@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.chiqvito.edmunds.sdk.dto.enums.OptionCategoryEnum;
@@ -51,7 +52,15 @@ public class OptionDTO extends EquipmentDTO {
     }
 
     private void readFromParcel(Parcel in) {
-        //TODO
+        description = (String) in.readValue(String.class.getClassLoader());
+        attributes = new ArrayList<AttributeDTO>();
+        in.readList(attributes, AttributeDTO.class.getClassLoader());
+        manufactureOptionName = (String) in.readValue(String.class.getClassLoader());
+        manufactureOptionCode = (String) in.readValue(String.class.getClassLoader());
+        category = in.readParcelable(OptionCategoryEnum.class.getClassLoader());
+        equipment = new ArrayList<EquipmentDTO>();
+        in.readList(equipment, EquipmentDTO.class.getClassLoader());
+        price = in.readParcelable(PriceDTO.class.getClassLoader());
     }
 
     @Override
@@ -62,7 +71,13 @@ public class OptionDTO extends EquipmentDTO {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
-        //TODO
+        dest.writeValue(description);
+        dest.writeList(attributes);
+        dest.writeValue(manufactureOptionName);
+        dest.writeValue(manufactureOptionCode);
+        dest.writeParcelable(category, flags);
+        dest.writeList(equipment);
+        dest.writeParcelable(price, flags);
     }
 
     public String getManufactureOptionName() {
