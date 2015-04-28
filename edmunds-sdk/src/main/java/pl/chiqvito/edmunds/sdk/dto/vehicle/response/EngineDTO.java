@@ -1,10 +1,24 @@
 package pl.chiqvito.edmunds.sdk.dto.vehicle.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EngineDTO extends EquipmentDTO {
+
+    public static final Parcelable.Creator<EngineDTO> CREATOR = new Parcelable.Creator<EngineDTO>() {
+        public EngineDTO createFromParcel(Parcel in) {
+            return new EngineDTO(in);
+        }
+
+        public EngineDTO[] newArray(int size) {
+            return new EngineDTO[size];
+        }
+    };
 
     @SerializedName("compressionRatio")
     private Float compressionRatio;
@@ -47,6 +61,57 @@ public class EngineDTO extends EquipmentDTO {
 
     @SerializedName("options")
     private List<OptionDTO> options;
+
+    public EngineDTO() {
+        super();
+    }
+
+    private EngineDTO(Parcel in) {
+        super(in);
+        readFromParcel(in);
+    }
+
+    private void readFromParcel(Parcel in) {
+        compressionRatio = (Float) in.readValue(Float.class.getClassLoader());
+        cylinder = (Integer) in.readValue(Integer.class.getClassLoader());
+        size = (Float) in.readValue(Float.class.getClassLoader());
+        displacement = (Integer) in.readValue(Integer.class.getClassLoader());
+        configuration = (String) in.readValue(String.class.getClassLoader());
+        fuelType = (String) in.readValue(String.class.getClassLoader());
+        horsepower = (Integer) in.readValue(Integer.class.getClassLoader());
+        torque = (Integer) in.readValue(Integer.class.getClassLoader());
+        totalValves = (Integer) in.readValue(Integer.class.getClassLoader());
+        manufacturerEngineCode = (String) in.readValue(String.class.getClassLoader());
+        type = (String) in.readValue(String.class.getClassLoader());
+        code = (String) in.readValue(String.class.getClassLoader());
+        compressorType = (String) in.readValue(String.class.getClassLoader());
+        options = new ArrayList<OptionDTO>();
+        in.readList(options, OptionDTO.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeValue(compressionRatio);
+        dest.writeValue(cylinder);
+        dest.writeValue(size);
+        dest.writeValue(displacement);
+        dest.writeValue(configuration);
+        dest.writeValue(fuelType);
+        dest.writeValue(horsepower);
+        dest.writeValue(torque);
+        dest.writeValue(totalValves);
+        dest.writeValue(manufacturerEngineCode);
+        dest.writeValue(type);
+        dest.writeValue(code);
+        dest.writeValue(compressorType);
+        dest.writeList(options);
+    }
 
     public Float getCompressionRatio() {
         return compressionRatio;

@@ -98,7 +98,7 @@ public class StyleDTO implements Parcelable {
         in.readList(states, StateEnum.class.getClassLoader());
         engine = in.readParcelable(EngineDTO.class.getClassLoader());
         transmission = in.readParcelable(TransmissionDTO.class.getClassLoader());
-        options = new ArrayList<OptionsDTO>();//TODO check this
+        options = new ArrayList<OptionsDTO>();
         in.readList(options, OptionsDTO.class.getClassLoader());
         colors = new ArrayList<OptionsColorDTO>();
         in.readList(colors, OptionsColorDTO.class.getClassLoader());

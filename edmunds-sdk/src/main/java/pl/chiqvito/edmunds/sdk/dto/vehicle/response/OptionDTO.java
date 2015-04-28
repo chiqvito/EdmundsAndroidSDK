@@ -46,7 +46,7 @@ public class OptionDTO extends EquipmentDTO {
         super();
     }
 
-    private OptionDTO(Parcel in) {
+    protected OptionDTO(Parcel in) {
         super(in);
         readFromParcel(in);
     }
