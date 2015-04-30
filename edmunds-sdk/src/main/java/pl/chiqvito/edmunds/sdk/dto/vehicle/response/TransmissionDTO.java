@@ -95,17 +95,4 @@ public class TransmissionDTO extends EquipmentDTO {
         this.options = options;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append("<" + super.toString() + ">");
-        sb.append(", automaticType: " + automaticType);
-        sb.append(", transmissionType: " + transmissionType);
-        sb.append(", numberOfSpeeds: " + numberOfSpeeds);
-        sb.append(", options: " + options);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

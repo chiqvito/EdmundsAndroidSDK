@@ -28,14 +28,4 @@ public class ModelsCountDTO {
         this.models = models;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" modelsCount: " + modelsCount);
-        sb.append(", models: " + models);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

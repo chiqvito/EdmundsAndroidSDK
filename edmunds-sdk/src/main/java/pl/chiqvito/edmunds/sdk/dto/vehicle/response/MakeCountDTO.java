@@ -26,14 +26,4 @@ public class MakeCountDTO {
         this.niceName = niceName;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" modelsCount: " + modelsCount);
-        sb.append(", niceName: " + niceName);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

@@ -62,14 +62,4 @@ public class FabricDTO implements Parcelable {
         this.value = value;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" name: " + name);
-        sb.append(", value: " + value);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

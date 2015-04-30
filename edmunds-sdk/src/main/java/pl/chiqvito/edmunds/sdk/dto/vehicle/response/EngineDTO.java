@@ -225,27 +225,4 @@ public class EngineDTO extends EquipmentDTO {
         this.options = options;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append("<" + super.toString() + ">");
-        sb.append(", compressionRatio: " + compressionRatio);
-        sb.append(", cylinder: " + cylinder);
-        sb.append(", size: " + size);
-        sb.append(", displacement: " + displacement);
-        sb.append(", configuration: " + configuration);
-        sb.append(", fuelType: " + fuelType);
-        sb.append(", horsepower: " + horsepower);
-        sb.append(", torque: " + torque);
-        sb.append(", totalValves: " + totalValves);
-        sb.append(", manufacturerEngineCode: " + manufacturerEngineCode);
-        sb.append(", type: " + type);
-        sb.append(", code: " + code);
-        sb.append(", compressorType: " + compressorType);
-        sb.append(", options: " + options);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

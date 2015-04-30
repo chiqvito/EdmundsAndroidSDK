@@ -28,14 +28,4 @@ public class EnginesDTO {
         this.engines = engines;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" enginesCount: " + enginesCount);
-        sb.append(", engines: " + engines);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

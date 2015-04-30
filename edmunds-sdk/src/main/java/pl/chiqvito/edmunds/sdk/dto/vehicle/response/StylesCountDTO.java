@@ -15,13 +15,4 @@ public class StylesCountDTO {
         this.stylesCount = stylesCount;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" stylesCount: " + stylesCount);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

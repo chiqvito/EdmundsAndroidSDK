@@ -62,14 +62,4 @@ public class MPGDTO implements Parcelable {
         this.city = city;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" highway: " + highway);
-        sb.append(", city: " + city);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

@@ -136,20 +136,4 @@ public class OptionDTO extends EquipmentDTO {
         this.equipment = equipment;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append("<" + super.toString() + ">");
-        sb.append(", description: " + description);
-        sb.append(", attributes: " + attributes);
-        sb.append(", manufactureOptionName: " + manufactureOptionName);
-        sb.append(", manufactureOptionCode: " + manufactureOptionCode);
-        sb.append(", category: " + category);
-        sb.append(", price: " + price);
-        sb.append(", equipment: " + equipment);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

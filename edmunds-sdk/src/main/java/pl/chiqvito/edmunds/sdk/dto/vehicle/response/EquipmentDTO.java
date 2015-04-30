@@ -91,16 +91,4 @@ public class EquipmentDTO implements Parcelable {
         this.availability = availability;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" id: " + id);
-        sb.append(", name: " + name);
-        sb.append(", equipmentType: " + equipmentType);
-        sb.append(", availability: " + availability);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

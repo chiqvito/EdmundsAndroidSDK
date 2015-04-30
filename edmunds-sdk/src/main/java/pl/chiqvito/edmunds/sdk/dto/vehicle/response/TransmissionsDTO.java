@@ -28,14 +28,4 @@ public class TransmissionsDTO {
         this.transmissions = transmissions;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" transmissionsCount: " + transmissionsCount);
-        sb.append(", transmissions: " + transmissions);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

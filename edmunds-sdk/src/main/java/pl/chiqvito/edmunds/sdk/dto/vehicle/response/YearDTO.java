@@ -121,18 +121,4 @@ public class YearDTO implements Parcelable {
         this.model = model;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" id: " + id);
-        sb.append(", make: " + make);
-        sb.append(", model: " + model);
-        sb.append(", states: " + states);
-        sb.append(", styles: " + styles);
-        sb.append(", year: " + year);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

@@ -26,14 +26,4 @@ public class ModelCountDTO {
         this.niceName = niceName;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" yearsCount: " + yearsCount);
-        sb.append(", niceName: " + niceName);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

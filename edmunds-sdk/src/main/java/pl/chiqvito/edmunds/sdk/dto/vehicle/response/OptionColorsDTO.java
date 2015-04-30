@@ -28,14 +28,4 @@ public class OptionColorsDTO {
         this.colors = colors;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" colorsCount: " + colorsCount);
-        sb.append(", colors: " + colors);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

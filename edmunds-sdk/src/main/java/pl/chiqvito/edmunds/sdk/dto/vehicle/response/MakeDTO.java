@@ -92,16 +92,4 @@ public class MakeDTO implements Parcelable {
         this.niceName = niceName;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" id: " + id);
-        sb.append(", name: " + name);
-        sb.append(", niceName: " + niceName);
-        sb.append(", models: " + models);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

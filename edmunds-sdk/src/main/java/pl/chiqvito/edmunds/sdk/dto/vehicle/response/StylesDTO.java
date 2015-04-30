@@ -17,13 +17,4 @@ public class StylesDTO {
         this.styles = styles;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" styles: " + styles);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

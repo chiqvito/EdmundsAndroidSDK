@@ -142,20 +142,4 @@ public class PriceDTO implements Parcelable {
         this.tmvRecommendedRating = tmvRecommendedRating;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" baseMSRP: " + baseMSRP);
-        sb.append(", baseInvoice: " + baseInvoice);
-        sb.append(", deliveryCharges: " + deliveryCharges);
-        sb.append(", usedTmvRetail: " + usedTmvRetail);
-        sb.append(", usedPrivateParty: " + usedPrivateParty);
-        sb.append(", usedTradeIn: " + usedTradeIn);
-        sb.append(", estimateTmv: " + estimateTmv);
-        sb.append(", tmvRecommendedRating: " + tmvRecommendedRating);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

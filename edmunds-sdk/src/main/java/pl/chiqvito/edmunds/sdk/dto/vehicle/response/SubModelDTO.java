@@ -101,17 +101,4 @@ public class SubModelDTO implements Parcelable {
         this.tuner = tuner;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" modelName: " + modelName);
-        sb.append(", niceName: " + niceName);
-        sb.append(", body: " + body);
-        sb.append(", fuel: " + fuel);
-        sb.append(", tuner: " + tuner);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

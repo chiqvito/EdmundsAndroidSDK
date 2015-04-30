@@ -68,14 +68,4 @@ public class OptionsColorDTO implements Parcelable {
         this.options = options;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" category: " + category);
-        sb.append(", options: " + options);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

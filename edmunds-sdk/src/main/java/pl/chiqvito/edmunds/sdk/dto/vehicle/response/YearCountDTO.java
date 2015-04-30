@@ -37,15 +37,4 @@ public class YearCountDTO {
         this.year = year;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" id: " + id);
-        sb.append(", stylesCount: " + stylesCount);
-        sb.append(", year: " + year);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

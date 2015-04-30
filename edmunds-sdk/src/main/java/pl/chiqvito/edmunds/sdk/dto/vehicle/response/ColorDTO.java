@@ -88,16 +88,4 @@ public class ColorDTO implements Parcelable {
         this.hex = hex;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" r: " + r);
-        sb.append(", g: " + g);
-        sb.append(", b: " + b);
-        sb.append(", hex: " + hex);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

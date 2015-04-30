@@ -292,31 +292,4 @@ public class StyleDTO implements Parcelable {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" id: " + id);
-        sb.append(", name: " + name);
-        sb.append(", trim: " + trim);
-        sb.append(", states: " + states);
-        sb.append(", submodel: " + submodel);
-        sb.append(", make: " + make);
-        sb.append(", model: " + model);
-        sb.append(", year: " + year);
-        sb.append(", engine: " + engine);
-        sb.append(", transmission: " + transmission);
-        sb.append(", options: " + options);
-        sb.append(", colors: " + colors);
-        sb.append(", drivenWheels: " + drivenWheels);
-        sb.append(", numOfDoors: " + numOfDoors);
-        sb.append(", squishVins: " + squishVins);
-        sb.append(", category: " + category);
-        sb.append(", mpg: " + mpg);
-        sb.append(", manufacturerCode: " + manufacturerCode);
-        sb.append(", price: " + price);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

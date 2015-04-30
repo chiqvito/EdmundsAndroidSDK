@@ -28,14 +28,4 @@ public class MakesCountDTO {
         this.makes = makes;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" makesCount: " + makesCount);
-        sb.append(", makes: " + makes);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

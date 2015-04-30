@@ -28,14 +28,4 @@ public class YearsDTO {
         this.yearsCount = yearsCount;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" yearsCount: " + yearsCount);
-        sb.append(", years: " + years);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

@@ -49,13 +49,4 @@ public class ColorChipDTO implements Parcelable {
         this.primary = primary;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" primary: " + primary);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }

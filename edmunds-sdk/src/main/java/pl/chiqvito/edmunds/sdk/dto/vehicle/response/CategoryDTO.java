@@ -104,17 +104,4 @@ public class CategoryDTO implements Parcelable {
         this.vehicleType = vehicleType;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[" + this.getClass().getSimpleName());
-        sb.append(" epaClass: " + epaClass);
-        sb.append(", vehicleSize: " + vehicleSize);
-        sb.append(", primaryBodyType: " + primaryBodyType);
-        sb.append(", vehicleStyle: " + vehicleStyle);
-        sb.append(", vehicleType: " + vehicleType);
-        sb.append("]");
-        return sb.toString();
-    }
-
 }
